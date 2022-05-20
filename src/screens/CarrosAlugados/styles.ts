@@ -19,7 +19,7 @@ color: ${({ theme }) => theme.colors.shape};
 font-family: ${({ theme }) => theme.fonts.secondary_600};
 font-size: ${RFValue(30)}px;
 `;
-export const Lista = styled(FlatList)`` as React.ComponentType as new <ListaProps>() => FlatList<ListaProps>;
+export const Lista = styled(FlatList)`` as React.ComponentType as new <AluguelProps>() => FlatList<AluguelProps>;
 export const CardContainer = styled.View`
 width: 100%;
 margin-bottom: 10px;

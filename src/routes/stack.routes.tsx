@@ -6,13 +6,12 @@ import TelaDeConclusao from "../screens/TelaDeConclusao";
 import Detalhes from "../screens/Detalhes";
 import DetalhesAgendamento from "../screens/DetalhesAgendamento";
 import Home from "../screens/Home";
-import { Car } from "../database/model/Car";
 
 const { Navigator, Screen } = createStackNavigator();
 
 export type StackScreenListApp = {
     Home: undefined,
-    Detalhes: { carro: Car },
+    Detalhes: { carro: CarroDTO },
     DetalhesAgendamento: { carro: CarroDTO, datas: string[] },
     Agendamento: { carro: CarroDTO },
     TelaDeConclusao: { texto: string, proximaTela: keyof StackScreenListApp },

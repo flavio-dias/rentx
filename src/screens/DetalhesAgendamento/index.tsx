@@ -34,12 +34,12 @@ export default function DetalhesAgendamento() {
         const dto = {
             car_id: carro.id,
             user_id: 1,
-            startDate: datas[0],
-            endDate: datas[datas.length - 1],
+            start_date: datas[0],
+            end_date: datas[datas.length - 1],
             total: carro.price * datas.length
         };
 
-        api.post(`/rentals`, dto).then(() => {
+        await api.post(`/rentals`, dto).then(() => {
             navigate('TelaDeConclusao', {
                 texto: 'O seu agendamento foi concluído com êxito.',
                 proximaTela: 'Home'

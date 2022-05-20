@@ -13,6 +13,7 @@ import { useNetInfo } from "@react-native-community/netinfo";
 import { synchronize } from '@nozbe/watermelondb/sync';
 import { database } from "../../database";
 import { Car } from "../../database/model/Car";
+import { CarroDTO } from "../../dtos/CarroDTO";
 
 export default function Home() {
     const [listaCarros, setListaCarros] = useState<Car[]>([]);
@@ -26,7 +27,19 @@ export default function Home() {
     }
 
     const handleSelecionarCarro = (carro: Car) => {
-        navigate('Detalhes', { carro: carro });
+        const carroDto: CarroDTO = {
+            id: carro.id,
+            name: carro.name,
+            about: carro.about,
+            brand: carro.brand,
+            fuel_type: carro.fuel_type,
+            period: carro.period,
+            price: carro.price,
+            thumbnail: carro.thumbnail,
+            accessories: [],
+            photos: []
+        }
+        navigate('Detalhes', { carro: carroDto });
     }
 
     const sincronizacaoOffline = async () => {
