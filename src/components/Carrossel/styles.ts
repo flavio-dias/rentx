@@ -1,4 +1,6 @@
 import styled from "styled-components/native";
+import { Dimensions } from 'react-native';
+import FastImage from "react-native-fast-image";
 
 interface IndexProps {
     active: boolean;
@@ -21,12 +23,11 @@ border-radius: 3px;
 margin-right: 5px;
 `;
 export const FotoWrap = styled.View`
-width: 100%;
-height: 132px;
 justify-content: center;
+width: ${Dimensions.get('screen').width}px;
 align-items: center;
 `;
-export const Foto = styled.Image`
+export const Foto = styled(FastImage)`
 width: 280px;
 height: 132px;
 `;

@@ -1,8 +1,9 @@
 import { FlatList } from "react-native";
+import FastImage from "react-native-fast-image";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
-export const BG = styled.View`
+export const BG = styled.TouchableOpacity`
 flex-direction: row;
 width: 100%;
 height: 130px;
@@ -44,7 +45,7 @@ font-family: ${({ theme }) => theme.fonts.secondary_500};
     font-size: ${RFValue(15)}px;
 `;
 export const Motor = styled.View``;
-export const Foto = styled.Image`
+export const Foto = styled(FastImage)`
 width: 167px;
 height: 85px;
 `;

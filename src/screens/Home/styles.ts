@@ -1,3 +1,4 @@
+import React from "react";
 import { FlatList } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
@@ -22,7 +23,16 @@ justify-content: space-between;
 align-items: flex-end;
 padding: 0px 20px 20px 20px;
 `;
-export const Lista = styled(FlatList).attrs({
-    contentContainerStyle: { padding: 16 },
-    showVerticalScrollIndicator: false
-})``;
+export const Lista = styled(FlatList)`` as React.ComponentType as new <Car>() => FlatList<Car>;
+
+export const FAB = styled.TouchableOpacity`
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    width: 60px;
+    height: 60px;
+    background-color: ${({ theme }) => theme.colors.main};
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+`;

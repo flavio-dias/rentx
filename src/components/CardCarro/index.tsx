@@ -1,35 +1,31 @@
 import React from "react";
 import { Aluguel, BG, Foto, Info, Marca, Motor, Nome, Periodo, Preco, Sobre } from "./styles";
-import GasolineSvg from '../../assets/gasoline.svg';
+import { getSvgIcon } from "../../utils/getSvgIcon";
+import { Car } from "../../database/model/Car";
+import { useNetInfo } from "@react-native-community/netinfo";
 
-interface CarroProps {
-    brand: string,
-    name: string,
-    rent: {
-        period: string,
-        price: number
-    }
-    thumbnail: string
-}
 
 interface CardCarroProps {
-    data: CarroProps
+    data: Car,
+    onPress?: () => void | Promise<void>
 }
 
-export default function CardCarro({ data }: CardCarroProps) {
+export default function CardCarro({ data, onPress }: CardCarroProps) {
+    const MotorIcon = getSvgIcon(data.fuel_type);
+    const netinfo = useNetInfo();
 
-    return <BG>
+    return <BG onPress={onPress}>
         <Info>
             <Marca>{data.brand}</Marca>
             <Nome>{data.name}</Nome>
 
             <Sobre>
                 <Aluguel>
-                    <Periodo>{data.rent.period}</Periodo>
-                    <Preco>R$ {data.rent.price}</Preco>
+                    <Periodo>{data.period}</Periodo>
+                    <Preco>R$ {netinfo.isConnected === true ? data.price : '...'}</Preco>
                 </Aluguel>
                 <Motor>
-                    <GasolineSvg />
+                    <MotorIcon />
                 </Motor>
             </Sobre>
         </Info>

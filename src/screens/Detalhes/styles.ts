@@ -3,7 +3,8 @@ import { RFValue } from "react-native-responsive-fontsize";
 import styled from "styled-components/native";
 
 export const BG = styled.View`
-flex:1
+flex:1;
+background-color: ${({ theme }) => theme.colors.bg_primary};
 `;
 export const Header = styled.View`
     flex-direction: row;
@@ -11,15 +12,6 @@ export const Header = styled.View`
     align-items: center;
     padding-top: ${getStatusBarHeight() + 10}px;
     padding-left: 16px;
-`;
-export const Content = styled.ScrollView.attrs({
-    contentContainerStyle: {
-        padding: 24,
-        alignItems: 'center'
-    },
-    showVerticalScrollIndicator: false
-})`
-
 `;
 export const Veiculo = styled.View`
 
@@ -40,6 +32,7 @@ export const Titulo = styled.View`
 flex-direction: row;
 width: 100%;
 justify-content: space-between;
+padding-bottom: 20px;
 `;
 export const Aluguel = styled.View`
 
@@ -69,5 +62,5 @@ flex-wrap: wrap;
 `;
 export const Footer = styled.View`
 padding: 16px 16px ${getBottomSpace() + 16}px;
-background-color: ${({ theme }) => theme.colors.bg_secondary};
+background-color: ${({ theme }) => theme.colors.bg_primary};
 `;

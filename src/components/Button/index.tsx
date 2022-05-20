@@ -6,12 +6,16 @@ import theme from "../../styles/theme";
 interface ButtonProps {
     label: string,
     color?: string,
-    onPress: () => void | Promise<void>
+    onPress: () => void | Promise<void>,
+    disabled?: boolean
 }
 
-export default function Button({ label, onPress, color }: ButtonProps) {
+export default function Button({ label, onPress, color, disabled }: ButtonProps) {
 
-    return <TouchableOpacity style={[ss.bg, { backgroundColor: color ? color : theme.colors.main }]} onPress={onPress}>
+    return <TouchableOpacity disabled={disabled}
+        style={[ss.bg, { backgroundColor: color ? color : theme.colors.main }, { backgroundColor: disabled ? theme.colors.text_detail : color || theme.colors.main }]}
+        onPress={onPress}
+    >
         <Text style={ss.label}>{label}</Text>
     </TouchableOpacity>
 }
@@ -21,7 +25,8 @@ const ss = StyleSheet.create({
         width: '100%',
         padding: 19,
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginTop: 8
     },
     label: {
         fontFamily: theme.fonts.primary_500,

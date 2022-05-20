@@ -19,7 +19,7 @@ export default function PerksCarro({ name, icon: Icon }: PerksCarroProps) {
 
 const ss = StyleSheet.create({
     bg: {
-        backgroundColor: theme.colors.bg_primary,
+        backgroundColor: theme.colors.shape_dark,
         width: 110,
         height: 92,
         justifyContent: 'center',

@@ -1,4 +1,12 @@
 {
-  "compilerOptions": {},
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "react-native-calendars": [
+        "node_modules/@types/react-native-calendars"
+      ]
+    },
+    "experimentalDecorators": true
+  },
   "extends": "expo/tsconfig.base"
 }
